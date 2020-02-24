@@ -8,10 +8,7 @@ const koaBody = require('koa-body');
 const koaStatic = require('koa-static');
 const cors = require('koa2-cors');
 const session = require('koa-session');
-const bcrypt = require("bcryptjs")
 const koaParameter = require("koa-parameter")
-const User=require("../models/user")
-
 class InitMar {
     static initCore(app) {
         InitMar.app = app;
@@ -23,7 +20,6 @@ class InitMar {
         InitMar.initKoaStatic();
         InitMar.initKoaParameter();
         InitMar.initLoadRouters();
-        InitMar.createAdmin(); 
     }
     //全局注册相关
     static globalInt() {
@@ -89,23 +85,6 @@ class InitMar {
             httpOnly: false, /** (boolean) httpOnly or not (default true) */
             signed: true, /** (boolean) signed or not (default true) */
         },InitMar.app));
-    }
-    //创建管理员账户
-    static  async createAdmin() {
-        const user=await User.findOne({
-            where: {
-                userName: config.admin.userName
-            }
-        })
-        if (!user){
-            const salt = bcrypt.genSaltSync(10);
-            const password = bcrypt.hashSync(config.admin.password, salt);
-            const admin={
-                userName: config.admin.userName,
-                password
-            }
-            User.create(admin)
-        }
     }
     //使用koaParameter参数校验
     static async initKoaParameter() {
