@@ -7,7 +7,6 @@ class Auth {
     //开放接口，不验证任何token
     get noToken() {
     }
-     //封闭接口，必须验证token权限为 “admin”
     get authToken() {
         return async (ctx, next) => {
             const header = ctx.request.header;
@@ -17,9 +16,10 @@ class Auth {
                 const dcode = jwt.verify(token,key)
                 //ctx挂载相关参数
                 ctx.auth = {
-                    userId: dcode.sign.userId,
-                    userName: dcode.sign.userName,
-                    hashPassword: dcode.sign.hashPassword
+                    adminUserId: dcode.sign.adminUserId,
+                    adminUserName: dcode.sign.adminUserName,
+                    hashPassword: dcode.sign.hashPassword,
+                    scope: dcode.spoce
                 }
             }
             catch (err) {
