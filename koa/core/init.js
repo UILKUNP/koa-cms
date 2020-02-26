@@ -70,7 +70,7 @@ class InitMar {
     //允许跨域请求
     static initKoaCor() {
         InitMar.app.use(cors({
-            origin: 'http://localhost:8080',
+            // origin: 'http://localhost:8080',
             credentials: true,
             maxAge: '1728000'
         }));

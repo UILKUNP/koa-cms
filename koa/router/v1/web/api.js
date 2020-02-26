@@ -8,20 +8,19 @@ const AdminUsers = require("../../../models/adminUsers")
 const Roles = require("../../../models/roles")
 const Routes = require("../../../models/routes")
 
-
 const router = new Router({
     prefix: '/api'
 })
 //获取验证码
 router.get("/getCode", async ctx => {
     const captcha = svgCaptcha.create({    //这种生成的是随机数验证码
-        size: 4,    //验证码长度1、
-        fontSize: 50,   //字体大小
-        width: 100,
-        noise: 2,
-        color: false,
-        height: 40,
-        background: '#ffffff'
+        size: 5,    //验证码长度1、
+        fontSize: 55,   //字体大小
+        width: 209,
+        noise: 3,
+        color: true,
+        height: 55,
+        // background: '#ffffff'
     });
     ctx.response.type = 'image/svg+xml';
     ctx.session.text = captcha.text
