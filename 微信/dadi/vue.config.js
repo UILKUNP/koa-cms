@@ -3,6 +3,8 @@ module.exports = {
   lintOnSave: false,
   // publicPath:'/screen2',
   devServer: {
+    disableHostCheck: true,
+    port: 9999,
     overlay: {
       warnings: false,
       errors: false,
@@ -31,18 +33,11 @@ module.exports = {
     resolve: {
       alias: {
         "@": path.resolve("src"),
-        "@view": path.resolve("src/views"),
-        "@com": path.resolve("src/components"),
-        "@err": path.resolve("src/lib/Error"),
-        "@tools": path.resolve("src/lib/Tools"),
-        "@router": path.resolve("src/router"),
+        "@api": path.resolve("src/api"),
+        "@lib": path.resolve("src/lib"),
+        "@mixins": path.resolve("src/mixins"),
+        "@imgs": path.resolve("imgs"),
       },
-    },
-  },
-  pluginOptions: {
-    "style-resources-loader": {
-      preProcessor: "less",
-      patterns: [path.resolve(__dirname, "src/assets/less/index.less")],
     },
   },
 };

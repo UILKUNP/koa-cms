@@ -14,8 +14,8 @@ module.exports = {
   },
   admin: { password: "DQ3GD1DD" },
   wx: {
-    appid: "wxe42f95780f60d4e3",
-    secret: "cd2fb2ae9dbfdda6f49fddeace0076a8",
+    appid: "wxb8acf6791f94f19a",
+    secret: "0317671fa9dd907831646e25e6505b4c",
   },
   jsonwebtoken: {
     key: "3MjU0LCJleHAiOj", //密码  ！！！重要，不可泄漏

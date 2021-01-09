@@ -17,7 +17,7 @@ Users.init(
     },
     marId: {
       type: Sequelize.INTEGER,
-      defaultValue: -1,
+      defaultValue: null,
     },
   },
   {
